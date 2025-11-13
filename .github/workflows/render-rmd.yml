@@ -35,4 +35,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs  # Match this to your _site.yml output_dir
-
