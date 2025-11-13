@@ -1,7 +1,11 @@
-name: "Mathematical Modeling"
-output_dir: "docs"
+site_name: "Mathematical Modeling"
+site_dir: "docs"
+
+theme:
+  name: material
+
 navbar:
   title: "MLB Statistical Modeling"
   right:
-  - href: "https://jeubank2-x.github.io/"
-    icon: fa-home
+    - href: "https://jeubank2-x.github.io/"
+      icon: fa-home
