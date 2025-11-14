@@ -62,10 +62,11 @@ Model Predicted
 18 of 52 Good Batters correct
 
 
-<div style="display: flex; justify-content: space-between; gap: 20px;">
-  <img src="assets/images /Photo5.png" width="48%">
-  <img src="assets/images /Photo6.png" width="48%">
+<div style="display: flex; justify-content: space-between; margin: 25px 0;">
+  <img src="assets/images/Photo5.jpg" width="48%" style="margin-right: 2%;">
+  <img src="assets/images /Photo6.png" width="48%" style="margin-left: 2%;">
 </div>
+
 
 
 The model captured several statistically advantageous matchups, demonstrating potential for predicting HR outcomes.
