@@ -1,13 +1,18 @@
-/* FULL override for Quarto + Material theme code blocks */
-pre.sourceCode, 
-pre, 
-code.sourceCode, 
-pre code, 
-div.sourceCode, 
-div.sourceCode pre, 
+/* Override ALL Material + Quarto code block styling */
+div.sourceCode,
+div.sourceCode pre,
 div.sourceCode code,
-.hljs {
+pre.sourceCode,
+pre code,
+code.sourceCode,
+pre {
   font-family: "Consolas", monospace !important;
   font-size: 10px !important;
-  line-height: 1.35;
+}
+
+/* Override highlight.js styles used by Material */
+.hljs, 
+.hljs * {
+  font-family: "Consolas", monospace !important;
+  font-size: 10px !important;
 }
