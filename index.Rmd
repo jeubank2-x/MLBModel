@@ -26,31 +26,16 @@ Data Processing & Cross-Matching:
 ![](assets/images /Photo1.png)
 
 # Filter missing data
-batters_recent <- batters_recent %>%
-  filter(player_id != 660644) %>%
-  mutate(hr_per_pa = hrs / pa)
+![](assets/images /Photo2.png)
 
 # Calculate player metrics
-batters <- batters %>% mutate(hr_per_pa = home_run / pa)
-pitchers <- pitchers %>% mutate(hr_per_ip = home_run / p_formatted_ip)
+![](assets/images /Photo3.png)
 
 # League averages and index
-batters_recent <- batters_recent %>%
-  mutate(avg = sum(hrs) / sum(pa),
-         index = hr_per_pa / avg)
-
-batters <- batters %>%
-  mutate(avg = sum(home_run) / sum(pa),
-         index = hr_per_pa / avg)
-
-pitchers <- pitchers %>%
-  mutate(avg = sum(home_run) / sum(p_formatted_ip),
-         index = hr_per_ip / avg)
+![](assets/images /Photo4.png)
 
 # Filter players with above-average performance or susceptibility
-batters_recent_filtered <- batters_recent %>% filter(index > 1)
-batters_filtered <- batters %>% filter(index > 1)
-pitchers_filtered <- pitchers %>% filter(index > 1)
+![](assets/images /Picture5.png)
 
 Example Calculation:
 Player A: 25 HR in 500 PA → HR/PA = 0.05
@@ -61,29 +46,27 @@ League HR/IP = 0.09 → Pitcher Index = 0.133 ÷ 0.09 = 1.48
 
 Since both indices > 1.0, the matchup is flagged as high value.
 
-High-Value Matchups:
-# Combine batter data
-good_batters <- inner_join(batters_filtered, batters_recent_filtered, by = "player_id")
 
 # Filter today's pitchers
-pitchers_today <- read_csv("~/Downloads/todays_pitchers_names_only.csv")
-bad_pitchers <- inner_join(pitchers_filtered, pitchers_today, by = c("last_name", "first_name"))
+![](assets/images /Picture4.png)
 
 # Select relevant columns
-good_batters <- good_batters %>%
-  select(last_name, first_name, player_id, ab, pa.x, pa.y, hit, home_run, hard_hit_percent)
-
-bad_pitchers <- bad_pitchers %>%
-  select(last_name, first_name, player_id, p_formatted_ip, home_run, hr_per_ip, 
-         barrel_batted_rate, exit_velocity_avg, batting_avg)
+![](assets/images /Picture3.png)
 
 These tables allow you to identify good batters versus susceptible pitchers using any MLB schedule. Additional metrics like hard hit % can be used to refine player selection.
 
-# Results (08/09/2025):
+# Results from (08/09/2025):
 
-Metric	Predicted	Actual
-High Value Batters	3 of 13 correct
-Good Batters	18 of 52 correct
+Model Predicted	
+3 of 13 High Value Batters correct
+18 of 52 Good Batters correct
+
+
+<div style="display: flex; justify-content: space-between; gap: 20px;">
+  <img src="assets/images /Photo5.png" width="48%">
+  <img src="assets/images /Photo6.png" width="48%">
+</div>
+
 
 The model captured several statistically advantageous matchups, demonstrating potential for predicting HR outcomes.
 
