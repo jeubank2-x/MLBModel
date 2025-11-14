@@ -1,4 +1,6 @@
-/* Only change font for code blocks */
-pre {
-  font-family: "Consolas", monospace;
+/* Force Consolas for code blocks */
+pre.sourceCode, 
+pre, 
+code.sourceCode {
+  font-family: "Consolas", monospace !important;
 }
